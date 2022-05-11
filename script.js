@@ -92,7 +92,7 @@ function draw() {
 
 function Pathfinder(parent) { //the class for making branches - note that it allows for another branch object to be passed in...
     if (parent === undefined) { //if this is the first branch, then use the following settings - note that this is how you deal with different constructors
-        this.location = createVector(600, 600); //placemnet of the first branch, or trunk
+        this.location = createVector(width/2, height* 0.8); //placemnet of the first branch, or trunk
         this.velocity = createVector(0, -1); //direction for the trunk, here -1 in the y axis = up
         this.diameter = random(10, 80); //size of trunk
         // this.diameter = s.val;
