@@ -18,9 +18,19 @@
 </head>
 
 <body>
+    <header>
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">about cn</button>
+            <div id="myDropdown" class="dropdown-content">
+                <span class="name">thats a crooked neck</span> is a project about generative tree-look-alike figures with <span class="highlight">p5.js</span> and support from class a-generative-web Spring2022
+                <br><br><br> scripts inspired by & recoded from <br>
+                <a href="https://openprocessing.org/user/10505?view=sketches">Chris Coleman</a>
+                <!-- <a href="#about">my github</a> -->
 
+            </div>
+        </div><a class="button" href="index.html" target="_blank" rel="noopener noreferrer">demo</a></header>
     <a href="https://www.are.na/oxu-eyo/that-s-a-crooked-neck" id="channel-url">
-        <h1 id="channel-title"></h1>
+        <h1 id="channel-title" style="display:none"></h1>
         <!-- The channel title will be inserted inside this h1. -->
     </a>
     <div id="channel-description" style="display:none"></div>
@@ -43,7 +53,27 @@
 
 
 
+    <script>
+        /* When the user clicks on the button, 
+                                                                                                                        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
 
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>

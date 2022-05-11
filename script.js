@@ -27,7 +27,7 @@ function setup() {
     tree = createGraphics(windowWidth, windowHeight); //decide how big the image is to hold the tree drawing
     ellipseMode(CENTER);
     smooth();
-    noLoop();
+    // noLoop();
     frameRate(50); //draw speed
     paths.push(new Pathfinder());
     positionX = 0;
