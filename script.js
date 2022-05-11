@@ -12,10 +12,11 @@ let counter = 0;
 let gui;
 let s;
 let s2;
+let t;
 
 
 function setup() {
-    background(255)
+    
     let myCanvas = createCanvas(windowWidth, windowHeight);
     myCanvas.parent('myZone');
 
@@ -23,6 +24,7 @@ function setup() {
     gui.setStrokeWeight(1);
     s = createSlider2d("Slider2d", 10, height - 200, 155, 155, 0, 255, 0, 255);
     s2 = createSlider("Slider", 10, height - 250, 155, 32, 0, 10);
+    t = createToggle("mode", 10, height-300, 155, 32);
 
     tree = createGraphics(windowWidth, windowHeight); //decide how big the image is to hold the tree drawing
     ellipseMode(CENTER);
@@ -33,14 +35,17 @@ function setup() {
     positionX = 0;
     blue = random(0, 105);
     green = random(200, 300);
-
-
+    bg=color(random(0,25), random(5,35), random(0,25));
 
 
 }
 
 function draw() {
-    // drawGui();
+    drawGui();
+    gui.loadStyle("Grey");
+    background(255);
+
+    
 
     if (s.isChanged) {
         // Print a message when Slider2d is changed
@@ -52,6 +57,17 @@ function draw() {
         // that displays its value.
         print(s2.label + " = " + s2.val);
     }
+    if (t.isPressed) {
+        // Print a message when Button is pressed.
+        print(t.label + " is " + t.val);
+    }
+
+    if (t.val) {
+        // Draw an ellipse when Button is held.
+        gui.loadStyle("TerminalGreen");
+        fill(bg);
+        rect(0, 0, windowWidth, windowHeight);
+      }
 
     image(tree, positionX, 0, width, height); //here we draw the tree to the screen every frame
     tree.noStroke(); //tree has no stroke
